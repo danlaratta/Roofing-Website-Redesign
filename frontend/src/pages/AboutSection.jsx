@@ -9,7 +9,7 @@ const Container = styled.div`
 
 const AboutSection = () => {
     return (
-        <Container>
+        <Container id='about'>
 
         </Container>
     )

@@ -9,7 +9,7 @@ const Container = styled.div`
 
 const ContactSection = () => {
     return (
-        <Container>
+        <Container id='contact'>
 
         </Container>
     )

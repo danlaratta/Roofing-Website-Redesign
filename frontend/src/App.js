@@ -11,7 +11,7 @@ function App() {
       <Navbar />
 
       <HeroSection />
-      <AboutSection />
+      <AboutSection  />
       <RoofingSection />
       <SidingSection />
       <ContactSection />
