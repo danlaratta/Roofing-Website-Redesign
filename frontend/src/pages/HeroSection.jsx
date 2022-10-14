@@ -23,28 +23,28 @@ const HeroContainer = styled.div`
 `
 
 const HeroItems = styled.div`
-    width: 60%;
+    width: 70%;
     display: flex;
     padding: 1.5rem 0rem;
 `
 
 const HeroTitle = styled.span`
-    font-size: 5.5rem;
+    font-size: 6.5rem;
     font-weight: bold;
     color: #fff;
 
 `
 
 const HeroSubTitle = styled.span`
-    font-size: 3rem;
+    font-size: 4rem;
     color: #fff;
 `
 
 const HeroBtn = styled(Link)`
     color: #fff;
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 2rem;
-    border: 0.2rem solid #fff;
+    border: 0.3rem solid #fff;
     border-radius: 0.5rem;
 
     &:hover{
@@ -66,7 +66,9 @@ const HeroSection = () => {
                 </HeroItems>
 
                 <HeroItems>
-                    <HeroBtn> FREE Estimate</HeroBtn>
+                    <HeroBtn activeClass='active' to="contact" spy={true} smooth={true} offset={0} duration={500}>
+                        FREE Estimate
+                    </HeroBtn>
                 </HeroItems>
             </HeroContainer>
         </Container>
