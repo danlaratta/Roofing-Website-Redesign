@@ -5,7 +5,8 @@ import { Link, animateScroll as scroll } from 'react-scroll'
 
 const Container = styled.div`
     width: 100%;
-    background-color: ${props => props.bgColor ? "#000" : "rbga(0, 0, 0, 0)"};
+    /* background-color: ${props => props.bgColor ? "var(--red)" : "rbga(0, 0, 0, 0)"}; */
+    background-color: ${props => props.bgColor ? "var(--blue)" : "rbga(0, 0, 0, 0)"};
     position: fixed;
     z-index: 10;
 `
@@ -20,12 +21,11 @@ const LeftNav = styled.div`
     flex: 3;
 `
 
-const LogoContainer = styled.div`
-    
-`
 
-const Logo = styled.img`
-    
+const LogoLink = styled(Link)`
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.8rem;
 `
 
 const CenterNav = styled.div`
@@ -45,8 +45,19 @@ const NavLink = styled(Link)`
     color: #fff;
     font-size: 1.8rem;
 
+    &:hover{
+        color: #fff;
+        transform: scale(1.13);
+        /* text-stroke: 1px #fff; */
+        -webkit-text-stroke: 0.06rem #fff;
+        /* border-bottom: 0.2rem solid #fff; */
+    }
+
     &.active {
-        color: red;
+        color: #fff;
+        border-bottom: 0.2rem solid #fff;
+        font-weight: bold;
+        padding-bottom: 0.5rem;
     }
 `
 
@@ -66,28 +77,26 @@ const Navbar = () => {
         <Container bgColor={bgColor}>
             <Wrapper>
             <LeftNav>
-                    <LogoContainer>
-                        <NavLink activeClass='active' to="hero" spy={true} smooth={true} offset={0} duration={500}>
-                            <Logo src={LogoImg} />
-                        </NavLink>
-                    </LogoContainer>
+                        <LogoLink to="hero" spy={true} smooth={true} offset={0} duration={500}>
+                            <img src={LogoImg} />
+                        </LogoLink>
                 </LeftNav>
 
                 <CenterNav>
                     <NavLinks>
-                        <NavLink activeClass='active' to="about" spy={true} smooth={true} offset={0} duration={500}>
+                        <NavLink activeClass='active' to="about" spy={true} smooth={true} offset={-113} duration={500}>
                             About
                         </NavLink>
 
-                        <NavLink activeClass="active" to="roofing" spy={true} smooth={true} offset={0} duration={500}>
+                        <NavLink activeClass="active" to="roofing" spy={true} smooth={true} offset={-113} duration={500}>
                             Roofing
                         </NavLink>
 
-                        <NavLink activeClass="active" to="siding" spy={true} smooth={true} offset={0} duration={500}>
+                        <NavLink activeClass="active" to="siding" spy={true} smooth={true} offset={-113} duration={500}>
                             Siding
                         </NavLink>
 
-                        <NavLink activeClass="active" to="contact" spy={true} smooth={true} offset={0} duration={500}>
+                        <NavLink activeClass="active" to="contact" spy={true} smooth={true} offset={-113} duration={500}>
                             Contact
                         </NavLink>
 

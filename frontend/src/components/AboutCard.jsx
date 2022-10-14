@@ -6,15 +6,25 @@ const Container = styled.div`
 `
 
 const CardContainer = styled.div`
-    width: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 const CardImg = styled.img`
-    
+    width: 100%;
 `
 
 const CardText = styled.span`
-    
+    width: 100%;
+    /* background-color: var(--red); */
+    background-color: var(--blue);
+    padding: 2rem 0rem;
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
 `
 
 const AboutCard = ({image, text}) => {

@@ -7,7 +7,6 @@ const Container = styled.div`
     min-height: 100vh;
     width: 100%;
     background-image: url(${HeroBG});
-    /* height: 100%; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,27 +28,28 @@ const HeroItems = styled.div`
 `
 
 const HeroTitle = styled.span`
-    font-size: 6.5rem;
+    font-size: 5.5rem;
     font-weight: bold;
     color: #fff;
 
 `
 
 const HeroSubTitle = styled.span`
-    font-size: 4rem;
+    font-size: 3rem;
     color: #fff;
 `
 
 const HeroBtn = styled(Link)`
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 2rem;
     padding: 2rem;
     border: 0.3rem solid #fff;
     border-radius: 0.5rem;
 
     &:hover{
         cursor: pointer;
-        background-color: var(--red);
+        /* background-color: var(--red); */
+        background-color: var(--blue);
     }
 `
 

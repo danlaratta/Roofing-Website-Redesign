@@ -1,38 +1,55 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import AboutCard from '../components/AboutCard'
-import Img1 from '../assets/about-img1.png'
-import Img2 from '../assets/about-img2.png'
-import Img3 from '../assets/about-img3.png'
+import Img1 from '../assets/img1.png'
+import Img2 from '../assets/img2.png'
+import Img3 from '../assets/img3.png'
 
 const Container = styled.div`
-    min-height: 100vh;
+    min-height: 89vh;
     width: 100%;
-    border-top: 1rem solid var(--red);
-`
-
-const AboutItems = styled.div`
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6rem;
 `
 
 const TextContainer = styled.div`
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 `
 
-const AboutTitle = styled.span`
-    
+const TitleContainer = styled.div`
+    display: flex;
+    justify-content: center;
+
+`
+
+const AboutTitle = styled.h1`
+    text-align: center;
+    font-size: 4rem;
+    color: var(--red);
 `
 
 const AboutText = styled.p`
-    
+    font-size: 2.2rem;
+    width: 50%;
+    line-height: 3.5rem;
 `
 
 const CardsContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
     
 `
 
 const CardItem = styled.div`
-    
+    width: 18%;
 `
 
 
@@ -47,17 +64,17 @@ const AboutSection = () => {
 
     return (
         <Container id='about'>
-            <AboutItems>
                 <TextContainer>
-                    <AboutTitle> Welcome to Advanced Roofing & Siding Inc. </AboutTitle>
+                    <TitleContainer>
+                        <AboutTitle> Welcome to Advanced Roofing & Siding Inc. </AboutTitle>
+                    </TitleContainer>
+
                     <AboutText> 
                         We are Toms River, NJ premier roofing company. We specialize is residential and commercial roofing in Toms River, Brick, 
                         and all of Ocean County.  We take pride in workmanship, efficiency, and customer satisfaction. 
                     </AboutText>
                 </TextContainer>
-            </AboutItems>
 
-            <AboutItems>
                 <CardsContainer>
                     { cardData.map((data, key) => (
                         <CardItem key={data.id}>
@@ -65,7 +82,6 @@ const AboutSection = () => {
                         </CardItem>
                     ))}
                 </CardsContainer>
-            </AboutItems>
         </Container>
     )
 }
