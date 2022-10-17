@@ -30,7 +30,8 @@ const TitleContainer = styled.div`
 const AboutTitle = styled.h1`
     text-align: center;
     font-size: 4rem;
-    color: var(--red);
+    color: var(--blue);
+    /* color: var(--red); */
 `
 
 const AboutText = styled.p`

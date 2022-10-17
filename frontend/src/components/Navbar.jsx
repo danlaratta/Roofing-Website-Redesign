@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import LogoImg from '../assets/Logo.png'
-import { Link, animateScroll as scroll } from 'react-scroll'
+import { Link } from 'react-scroll'
 
 const Container = styled.div`
     width: 100%;
@@ -9,6 +9,7 @@ const Container = styled.div`
     background-color: ${props => props.bgColor ? "var(--blue)" : "rbga(0, 0, 0, 0)"};
     position: fixed;
     z-index: 10;
+    /* box-shadow: 0rem 0.6rem 0.8rem #888888; */
 `
 
 const Wrapper = styled.div`
@@ -78,7 +79,7 @@ const Navbar = () => {
             <Wrapper>
             <LeftNav>
                         <LogoLink to="hero" spy={true} smooth={true} offset={0} duration={500}>
-                            <img src={LogoImg} />
+                            <img src={LogoImg} alt='logo' />
                         </LogoLink>
                 </LeftNav>
 
