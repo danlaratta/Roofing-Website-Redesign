@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 
 
 const LeftSection = styled.div`
-    flex: 6;
+    flex: 5;
 `
 
 const RightSection = styled.div`

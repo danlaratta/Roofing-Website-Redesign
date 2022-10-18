@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import LogoImg from '../assets/Logo.png'
+import LogoImg from '../assets/logo1.png'
 import { Link } from 'react-scroll'
 
 const Container = styled.div`
@@ -26,7 +26,7 @@ const LeftNav = styled.div`
 const LogoLink = styled(Link)`
     cursor: pointer;
     color: #fff;
-    font-size: 1.8rem;
+    padding-left: 2rem;
 `
 
 const CenterNav = styled.div`
@@ -77,27 +77,27 @@ const Navbar = () => {
     return (
         <Container bgColor={bgColor}>
             <Wrapper>
-            <LeftNav>
-                        <LogoLink to="hero" spy={true} smooth={true} offset={0} duration={500}>
-                            <img src={LogoImg} alt='logo' />
-                        </LogoLink>
+                <LeftNav>
+                    <LogoLink to="hero" spy={true} smooth={true} offset={0} duration={500}>
+                        <img src={LogoImg} alt='logo' style={{width: '23%'}} />
+                    </LogoLink>
                 </LeftNav>
 
                 <CenterNav>
                     <NavLinks>
-                        <NavLink activeClass='active' to="about" spy={true} smooth={true} offset={-113} duration={500}>
+                        <NavLink activeClass='active' to="about" spy={true} smooth={true} offset={-110} duration={500}>
                             About
                         </NavLink>
 
-                        <NavLink activeClass="active" to="roofing" spy={true} smooth={true} offset={-113} duration={500}>
+                        <NavLink activeClass="active" to="roofing" spy={true} smooth={true} offset={-110} duration={500}>
                             Roofing
                         </NavLink>
 
-                        <NavLink activeClass="active" to="siding" spy={true} smooth={true} offset={-113} duration={500}>
+                        <NavLink activeClass="active" to="siding" spy={true} smooth={true} offset={-109} duration={500}>
                             Siding
                         </NavLink>
 
-                        <NavLink activeClass="active" to="contact" spy={true} smooth={true} offset={-113} duration={500}>
+                        <NavLink activeClass="active" to="contact" spy={true} smooth={true} offset={-109} duration={500}>
                             Contact
                         </NavLink>
 
