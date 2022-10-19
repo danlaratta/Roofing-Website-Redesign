@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import SidingBG from '../assets/siding.png'
 
 const Container = styled.div`
-    min-height: 89vh;
+    min-height: 89.1vh;
     width: 100%;
     background-image: url(${SidingBG});
     background-position: center;
@@ -34,7 +34,7 @@ const LeftWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 10%;
-    height: 86.5%;
+    height: 89vh;
 `
 
 const TopSection = styled.div`
@@ -96,7 +96,6 @@ const SidingSection = () => {
                     <LeftWrapper>
                         <TopSection>
                             <SectionContainer>
-
                                 <Title> Top Quality Siding </Title>
 
                                 <Text>

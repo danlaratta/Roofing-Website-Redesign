@@ -4,6 +4,7 @@ import AboutSection from './pages/AboutSection'
 import RoofingSection from './pages/RoofingSection'
 import SidingSection from './pages/SidingSection'
 import ContactSection from './pages/ContactSection'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <RoofingSection />
       <SidingSection />
       <ContactSection />
+
+      <Footer />
     </div>
   )
 }
