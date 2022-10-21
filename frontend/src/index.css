@@ -15,6 +15,7 @@ code {
 :root{
   /* --red: #9A0506; */
   --red: #c10202;
+  --overlay-red: rgba(193, 2, 2, 0.7);
   --blue: #003354;
   /* --blue: #1C1F33; */
 }

@@ -49,8 +49,7 @@ const HeroBtn = styled(Link)`
 
     &:hover{
         cursor: pointer;
-        /* background-color: var(--red); */
-        background-color: var(--blue);
+        background-color: var(--red);
     }
 `
 

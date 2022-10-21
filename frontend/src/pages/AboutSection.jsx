@@ -31,8 +31,7 @@ const TitleContainer = styled(motion.div)`
 const AboutTitle = styled.h1`
     text-align: center;
     font-size: 4rem;
-    color: var(--blue);
-    /* color: var(--red); */
+    color: var(--red);
 `
 
 const AboutText = styled(motion.p)`
@@ -56,9 +55,9 @@ const CardItem = styled(motion.div)`
 
 const AboutSection = () => {
     let cardData = [
-        {'image': Img1, 'text': 'Residential Roofing'},
-        {'image': Img2, 'text': 'Commercial Roofing'},
-        {'image': Img3, 'text': 'Siding Services'},
+        {'image': Img1, 'text': 'Residential Roofing', path: 'roofing'},
+        {'image': Img2, 'text': 'Commercial Roofing',  path: 'roofing'},
+        {'image': Img3, 'text': 'Siding Services',  path: 'siding'},
     ]
 
     // VARIANTS
@@ -154,7 +153,7 @@ const AboutSection = () => {
                 >
                     { cardData.map((data) => (
                         <CardItem key={data.image} variants={ CardsVariants }>
-                            <AboutCard image= {data.image} text={data.text} />
+                            <AboutCard image= {data.image} text={data.text} path={data.path} />
                         </CardItem>
                     ))}
                 </CardsContainer>

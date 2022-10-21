@@ -35,7 +35,7 @@ const SectionItem = styled.div`
 `
 
 const ContactTitle = styled.span`
-    color: var(--blue);
+    color: var(--red);
     font-size: 3.5rem;
     font-weight: bold;
 `
@@ -46,7 +46,7 @@ const TextContainer = styled.div`
 `
 
 const Title = styled.span`
-    color: var(--blue);
+    color: var(--red);
     font-size: 2rem;
     font-weight: bold;
 `
@@ -68,7 +68,7 @@ const FormContainer = styled.div`
 
 const FormTitle = styled.span`
     font-size: 3.5rem;
-    color: var(--blue);
+    color: var(--red);
     font-weight: bold;
 `
 
@@ -80,7 +80,7 @@ const Form = styled.form`
     width: 65%;
     -webkit-box-shadow: 0px 0px 15px 3px #959595; 
     box-shadow: 0px 0px 15px 3px #959595;
-    background-color: var(--blue);
+    background-color: var(--red);
     padding: 5rem 0rem;
 `
 
@@ -104,7 +104,7 @@ const TextBox = styled.textarea`
 const Btn = styled.button`
     padding: 1.5rem 5rem;
     font-size: 1.6rem;
-    background-color: var(--blue);
+    background-color: var(--red);
     border: 0.2rem solid #fff;
     color: #fff;
     font-weight: 600;
@@ -113,7 +113,7 @@ const Btn = styled.button`
     &:hover{
         cursor: pointer;
         background-color: #fff;
-        color: var(--blue);
+        color: var(--red);
     }
 `
 

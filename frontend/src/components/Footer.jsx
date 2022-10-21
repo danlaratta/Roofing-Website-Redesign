@@ -6,7 +6,7 @@ import { HiOutlineLocationMarker, HiOutlinePhone, HiOutlineMail } from 'react-ic
 
 const Container = styled.div`
     width: 100%;
-    background-color: var(--blue);
+    background-color: var(--red);
 `
 
 const Wrapper = styled.div`

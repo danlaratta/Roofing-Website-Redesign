@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import LogoImg from '../assets/logo1.png'
+import LogoWhite from '../assets/logo1.png'
+import LogoRed from '../assets/logo4.png'
 import { Link } from 'react-scroll'
 import { motion } from 'framer-motion'
 
 const Container = styled.div`
     width: 100%;
-    /* background-color: ${props => props.bgColor ? "var(--red)" : "rbga(0, 0, 0, 0)"}; */
-    background-color: ${props => props.bgColor ? "var(--blue)" : "rbga(0, 0, 0, 0)"};
+    background-color: ${props => props.color === 1 ? "#fff" : "rbga(0, 0, 0, 0)"};
     position: fixed;
     z-index: 10;
-    /* box-shadow: 0rem 0.6rem 0.8rem #888888; */
+    box-shadow: ${props => props.color === 1 ? "0rem 0.2rem 0.8rem #565656" : "none"};
 `
 
 const Wrapper = styled(motion.div)`
@@ -42,23 +42,18 @@ const NavLinks = styled(motion.div)`
     gap: 10rem;
 `
 
-const NavItems = styled(motion.div)`
+const NavItems = styled(motion.div)``
 
-`
-
-const LinkContainer = styled(motion.div)`
-
-`
+const LinkContainer = styled(motion.div)``
 
 const NavLink = styled(Link)`
     cursor: pointer;
-    color: #fff;
+    color: ${props => props.color === 1 ? "#000" : "#fff"};
     font-size: 1.8rem;
 
     &.active {
-        color: #fff;
-        border-bottom: 0.2rem solid #fff;
-        font-weight: bold;
+        color: var(--red);
+        font-weight: 900;
         padding-bottom: 0.5rem;
     }
 `
@@ -68,12 +63,12 @@ const RightNav = styled.div`
 `
 
 const Navbar = () => {
-    const [bgColor, setBgColor] = useState(false)
+    const [color, setColor] = useState(0)
 
-    const changeBgColor = () => {
-        window.scrollY >= 100 ? setBgColor(true) : setBgColor(false)
+    const changecolor = () => {
+        window.scrollY >= 100 ? setColor(1) : setColor(0)
     }
-    window.addEventListener('scroll', changeBgColor)
+    window.addEventListener('scroll', changecolor)
 
     // VARIANTS
     const NavVariant = {
@@ -121,17 +116,15 @@ const Navbar = () => {
 
     const HoverVariants = {
         hover: {
-            scale: 1.1,
+            scale: 1.2,
             transition: {
-                duration: 0.8,
-                repeat: Infinity,
-                repeatType: 'mirror',
+                duration: 0.5,
             }
         }
     }
 
     return (
-        <Container bgColor={bgColor}>
+        <Container color={color}>
             <Wrapper
                 variants= { NavVariant }
                 initial= 'hidden'
@@ -139,7 +132,7 @@ const Navbar = () => {
             >
                 <LeftNav variants= { NavVariant }>
                     <LogoLink to="hero" spy={true} smooth={true} offset={0} duration={500}>
-                        <img src={LogoImg} alt='logo' style={{width: '23%'}} />
+                        <img src={color ? LogoRed : LogoWhite} alt='logo' style={{width: '23%'}} />
                     </LogoLink>
                 </LeftNav>
 
@@ -151,7 +144,7 @@ const Navbar = () => {
                     >
                         <NavItems variants= { LinkVariants }>
                             <LinkContainer variants= { HoverVariants } whileHover="hover">
-                                <NavLink activeClass='active' to="about" spy={true} smooth={true} offset={-110} duration={500}>
+                                <NavLink activeClass='active' to="about" spy={true} smooth={true} offset={-110} duration={500} color={color}>
                                     About
                                 </NavLink>
                             </LinkContainer>
@@ -159,7 +152,7 @@ const Navbar = () => {
 
                         <NavItems variants= { LinkVariants }>
                             <LinkContainer variants= { HoverVariants } whileHover="hover">
-                                <NavLink activeClass="active" to="roofing" spy={true} smooth={true} offset={-110} duration={500}>
+                                <NavLink activeClass="active" to="roofing" spy={true} smooth={true} offset={-110} duration={500} color={color}>
                                     Roofing
                                 </NavLink>
                             </LinkContainer>
@@ -167,7 +160,7 @@ const Navbar = () => {
 
                         <NavItems variants= { LinkVariants }>
                             <LinkContainer variants= { HoverVariants } whileHover="hover">
-                                <NavLink activeClass="active" to="siding" spy={true} smooth={true} offset={-109} duration={500}>
+                                <NavLink activeClass="active" to="siding" spy={true} smooth={true} offset={-109} duration={500} color={color}>
                                     Siding
                                 </NavLink>
                             </LinkContainer>
@@ -175,7 +168,7 @@ const Navbar = () => {
 
                         <NavItems variants= { LinkVariants }>
                             <LinkContainer variants= { HoverVariants } whileHover="hover">
-                                <NavLink activeClass="active" to="contact" spy={true} smooth={true} offset={-109} duration={500}>
+                                <NavLink activeClass="active" to="contact" spy={true} smooth={true} offset={-109} duration={500} color={color}>
                                     Contact
                                 </NavLink>
                             </LinkContainer>
