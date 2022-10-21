@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import HeroBG from '../assets/HeroBG.png'
 import { Link } from 'react-scroll'
+import { motion } from 'framer-motion'
 
 const Container = styled.div`
     min-height: 100vh;
@@ -12,7 +13,7 @@ const Container = styled.div`
     background-size: cover;
 `
 
-const HeroContainer = styled.div`
+const HeroContainer = styled(motion.div)`
     width: 50%;
     min-height: 100vh;
     display: flex;
@@ -21,7 +22,7 @@ const HeroContainer = styled.div`
     align-items: center;
 `
 
-const HeroItems = styled.div`
+const HeroItems = styled(motion.div)`
     width: 70%;
     display: flex;
     padding: 1.5rem 0rem;
@@ -53,19 +54,64 @@ const HeroBtn = styled(Link)`
     }
 `
 
+
 const HeroSection = () => {
+
+    // VARIANTS
+    const HeroVariant = {
+        hidden: {
+            y: -100,
+            opacity: 0,
+        },
+
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { 
+                delayChildren: 1.5,
+                staggerChildren: 0.4,
+                duration: 0.8,
+            }
+        }
+    }
+
+    const ChildrenVariant = {
+        hidden: {
+            y: -100,
+            opacity: 0,
+        },
+
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { 
+                duration: 0.8,
+            }
+        }
+    }
+
     return (
         <Container id='hero'>
-            <HeroContainer>
-                <HeroItems>
+            <HeroContainer
+                variants= { HeroVariant }
+                initial= 'hidden'
+                animate= 'show'
+            >
+                <HeroItems 
+                    variants= { ChildrenVariant }
+                >
                     <HeroTitle> Premier Residential and Commercial Roofing </HeroTitle>
                 </HeroItems>
 
-                <HeroItems>
+                <HeroItems 
+                    variants= { ChildrenVariant }
+                >
                     <HeroSubTitle> Serving Toms River, Brick, and all of Ocean County </HeroSubTitle>
                 </HeroItems>
 
-                <HeroItems>
+                <HeroItems 
+                    variants= { ChildrenVariant }
+                >
                     <HeroBtn activeClass='active' to="contact" spy={true} smooth={true} offset={0} duration={500}>
                         FREE Estimate
                     </HeroBtn>

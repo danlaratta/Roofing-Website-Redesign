@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import LogoImg from '../assets/logo1.png'
 import { Link } from 'react-scroll'
+import { motion } from 'framer-motion'
 
 const Container = styled.div`
     width: 100%;
@@ -12,13 +13,13 @@ const Container = styled.div`
     /* box-shadow: 0rem 0.6rem 0.8rem #888888; */
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
     display: flex;
     width: 100%;
     padding: 2rem 1rem;
 `
 
-const LeftNav = styled.div`
+const LeftNav = styled(motion.div)`
     flex: 3;
 `
 
@@ -29,30 +30,30 @@ const LogoLink = styled(Link)`
     padding-left: 2rem;
 `
 
-const CenterNav = styled.div`
+const CenterNav = styled(motion.div)`
     flex: 6;
     display: flex;
     justify-content: center;
     align-items: center;
 `
 
-const NavLinks = styled.div`
+const NavLinks = styled(motion.div)`
     display: flex;
     gap: 10rem;
+`
+
+const NavItems = styled(motion.div)`
+
+`
+
+const LinkContainer = styled(motion.div)`
+
 `
 
 const NavLink = styled(Link)`
     cursor: pointer;
     color: #fff;
     font-size: 1.8rem;
-
-    &:hover{
-        color: #fff;
-        transform: scale(1.13);
-        /* text-stroke: 1px #fff; */
-        -webkit-text-stroke: 0.06rem #fff;
-        /* border-bottom: 0.2rem solid #fff; */
-    }
 
     &.active {
         color: #fff;
@@ -74,37 +75,115 @@ const Navbar = () => {
     }
     window.addEventListener('scroll', changeBgColor)
 
+    // VARIANTS
+    const NavVariant = {
+        hidden: {
+            y: -100,
+            opacity: 0,
+        },
+
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { 
+                duration: 0.6,
+            }
+        }
+    }
+
+    const NavLinkVariant = {
+        hidden: {
+            opacity: 0,
+        },
+
+        show: {
+            opacity: 1,
+            transition: { 
+                duration: 0.6,
+                delayChildren: 0.5,
+                staggerChildren: 0.2,
+            }
+        }
+    }
+
+    const LinkVariants = {
+        hidden: {
+            y: -100,
+        },
+
+        show: {
+            y: 0,
+            transition: { 
+                duration: 0.6,
+            }
+        },
+    }
+
+    const HoverVariants = {
+        hover: {
+            scale: 1.1,
+            transition: {
+                duration: 0.8,
+                repeat: Infinity,
+                repeatType: 'mirror',
+            }
+        }
+    }
+
     return (
         <Container bgColor={bgColor}>
-            <Wrapper>
-                <LeftNav>
+            <Wrapper
+                variants= { NavVariant }
+                initial= 'hidden'
+                animate= 'show'
+            >
+                <LeftNav variants= { NavVariant }>
                     <LogoLink to="hero" spy={true} smooth={true} offset={0} duration={500}>
                         <img src={LogoImg} alt='logo' style={{width: '23%'}} />
                     </LogoLink>
                 </LeftNav>
 
                 <CenterNav>
-                    <NavLinks>
-                        <NavLink activeClass='active' to="about" spy={true} smooth={true} offset={-110} duration={500}>
-                            About
-                        </NavLink>
+                    <NavLinks
+                        variants= { NavLinkVariant }
+                        initial= 'hidden'
+                        animate= 'show'
+                    >
+                        <NavItems variants= { LinkVariants }>
+                            <LinkContainer variants= { HoverVariants } whileHover="hover">
+                                <NavLink activeClass='active' to="about" spy={true} smooth={true} offset={-110} duration={500}>
+                                    About
+                                </NavLink>
+                            </LinkContainer>
+                        </NavItems>
 
-                        <NavLink activeClass="active" to="roofing" spy={true} smooth={true} offset={-110} duration={500}>
-                            Roofing
-                        </NavLink>
+                        <NavItems variants= { LinkVariants }>
+                            <LinkContainer variants= { HoverVariants } whileHover="hover">
+                                <NavLink activeClass="active" to="roofing" spy={true} smooth={true} offset={-110} duration={500}>
+                                    Roofing
+                                </NavLink>
+                            </LinkContainer>
+                        </NavItems>
 
-                        <NavLink activeClass="active" to="siding" spy={true} smooth={true} offset={-109} duration={500}>
-                            Siding
-                        </NavLink>
+                        <NavItems variants= { LinkVariants }>
+                            <LinkContainer variants= { HoverVariants } whileHover="hover">
+                                <NavLink activeClass="active" to="siding" spy={true} smooth={true} offset={-109} duration={500}>
+                                    Siding
+                                </NavLink>
+                            </LinkContainer>
+                        </NavItems>
 
-                        <NavLink activeClass="active" to="contact" spy={true} smooth={true} offset={-109} duration={500}>
-                            Contact
-                        </NavLink>
-
+                        <NavItems variants= { LinkVariants }>
+                            <LinkContainer variants= { HoverVariants } whileHover="hover">
+                                <NavLink activeClass="active" to="contact" spy={true} smooth={true} offset={-109} duration={500}>
+                                    Contact
+                                </NavLink>
+                            </LinkContainer>
+                        </NavItems>
                     </NavLinks>
                 </CenterNav>
 
-                <RightNav>
+                <RightNav >
                     
                 </RightNav>
             </Wrapper>

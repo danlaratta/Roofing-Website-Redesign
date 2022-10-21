@@ -4,6 +4,7 @@ import AboutCard from '../components/AboutCard'
 import Img1 from '../assets/img1.png'
 import Img2 from '../assets/img2.png'
 import Img3 from '../assets/img3.png'
+import { motion } from 'framer-motion'
 
 const Container = styled.div`
     min-height: 89vh;
@@ -14,14 +15,14 @@ const Container = styled.div`
     gap: 6rem;
 `
 
-const TextContainer = styled.div`
+const TextContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
 
 `
 
-const TitleContainer = styled.div`
+const TitleContainer = styled(motion.div)`
     display: flex;
     justify-content: center;
 
@@ -34,13 +35,13 @@ const AboutTitle = styled.h1`
     /* color: var(--red); */
 `
 
-const AboutText = styled.p`
+const AboutText = styled(motion.p)`
     font-size: 2.2rem;
     width: 50%;
     line-height: 3.5rem;
 `
 
-const CardsContainer = styled.div`
+const CardsContainer = styled(motion.div)`
     width: 100%;
     display: flex;
     justify-content: center;
@@ -49,36 +50,110 @@ const CardsContainer = styled.div`
     
 `
 
-const CardItem = styled.div`
+const CardItem = styled(motion.div)`
     width: 18%;
 `
 
-
-
 const AboutSection = () => {
-
     let cardData = [
-        {id: 1, 'image': Img1, 'text': 'Residential Roofing'},
-        {id: 2, 'image': Img2, 'text': 'Commercial Roofing'},
-        {id: 3, 'image': Img3, 'text': 'Siding Services'},
+        {'image': Img1, 'text': 'Residential Roofing'},
+        {'image': Img2, 'text': 'Commercial Roofing'},
+        {'image': Img3, 'text': 'Siding Services'},
     ]
+
+    // VARIANTS
+    const TextContainerVariants = {
+        hidden: {
+            opacity: 0,
+            x:-300,
+        },
+
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: { 
+                duration: 1,
+                staggerChildren: 0.4,
+            }
+        }
+    }
+
+    const TextChildrenVariants = {
+        hidden: {
+            opacity: 0,
+            x:-300,
+        },
+
+        show: {
+            x: 0,
+            opacity: 1,
+            transition: { 
+                duration: 1,
+            }
+        },
+    }
+
+    const CardsContainerVariants = {
+        hidden: {
+            opacity: 0,
+        },
+    
+        show: {
+            opacity: 1,
+            transition: { 
+                duration: 0.8,
+                delayChildren: 1,
+                staggerChildren: 0.4,
+            }
+        }
+    }
+    
+    const CardsVariants = {
+        hidden: {
+            x: 300,
+            opacity: 0,
+        },
+    
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: { 
+                duration: 0.8,
+            }
+        }
+    }
 
     return (
         <Container id='about'>
-                <TextContainer>
+                <TextContainer
+                    variants= { TextContainerVariants }
+                    initial= 'hidden'
+                    whileInView="show"
+                    viewport={{ once: false, amount: .5 }}
+                >
                     <TitleContainer>
                         <AboutTitle> Welcome to Advanced Roofing & Siding Inc. </AboutTitle>
                     </TitleContainer>
 
-                    <AboutText> 
+                    <AboutText
+                        variants= { TextChildrenVariants }
+                        initial= 'hidden'
+                        whileInView="show"
+                        viewport={{ once: false, amount: .5 }}
+                    > 
                         We are Toms River, NJ premier roofing company. We specialize is residential and commercial roofing in Toms River, Brick, 
                         and all of Ocean County.  We take pride in workmanship, efficiency, and customer satisfaction. 
                     </AboutText>
                 </TextContainer>
 
-                <CardsContainer>
-                    { cardData.map((data, key) => (
-                        <CardItem key={data.id}>
+                <CardsContainer
+                    variants={ CardsContainerVariants }
+                    initial= 'hidden'
+                    whileInView="show"
+                    viewport={{ once: false, amount: .5 }}
+                >
+                    { cardData.map((data) => (
+                        <CardItem key={data.image} variants={ CardsVariants }>
                             <AboutCard image= {data.image} text={data.text} />
                         </CardItem>
                     ))}

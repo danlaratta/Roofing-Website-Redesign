@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import SuccessModal from '../components/SuccessModal'
+import { motion } from 'framer-motion'
 
 const Container = styled.div`
     min-height: 89vh;
@@ -245,6 +246,33 @@ const ContactSection = () => {
         }
 
     }, [errorMsg, setIsSuccess, isSuccess, isSubmit])
+
+    // VARIANTS
+    const NavVariant = {
+        hidden: {
+            y: -100,
+            opacity: 0,
+        },
+
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: { 
+                duration: 1,
+            }
+        }
+    }
+
+    const LinkVariants = {
+        hover: {
+            scale: 1.1,
+            transition: {
+                duration: 0.8,
+                repeat: Infinity,
+                repeatType: 'mirror',
+            }
+        }
+    }
 
     return (
         <Container id='contact'>
