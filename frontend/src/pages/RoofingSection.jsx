@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import RoofingBG from '../assets/roofing.png'
+import { motion } from 'framer-motion'
 
 const Container = styled.div`
     min-height: 89vh;
@@ -28,7 +29,7 @@ const RightSection = styled.div`
 `
   
 
-const RightWrapper = styled.div`
+const RightWrapper = styled(motion.div)`
     flex: 6;
     display: flex;
     flex-direction: column;
@@ -37,7 +38,7 @@ const RightWrapper = styled.div`
     height: 86.5%;
 `
 
-const TopSection = styled.div`
+const TopSection = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,7 +61,7 @@ const Text = styled.p`
     color: #fff;
 `
 
-const BottomSection = styled.div`
+const BottomSection = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,14 +90,54 @@ const ServiceItems = styled.li`
 
 
 const RoofingSection = () => {
+
+    // VARIANTS
+    const TextContainerVariants = {
+        hidden: {
+            opacity: 0,
+            x:300,
+        },
+
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: { 
+                duration: 1,
+                staggerChildren: 0.4,
+            }
+        }
+    }
+
+    const TextChildrenVariants = {
+        hidden: {
+            opacity: 0,
+            x:300,
+        },
+
+        show: {
+            x: 0,
+            opacity: 1,
+            transition: { 
+                duration: 1,
+            }
+        },
+    }
+
     return (
         <Container id='roofing'>
             <Wrapper> 
                 <LeftSection> </LeftSection>
 
                 <RightSection>
-                    <RightWrapper>
-                        <TopSection>
+                    <RightWrapper
+                        variants= { TextContainerVariants }
+                        initial= 'hidden'
+                        whileInView="show"
+                        viewport={{ once: false, amount: .5 }}
+                    >
+                        <TopSection
+                            variants= { TextChildrenVariants }
+                        >
                             <SectionContainer>
                                 <Title> Roofing Experts </Title>
 
@@ -107,7 +148,9 @@ const RoofingSection = () => {
                             </SectionContainer>
                         </TopSection>
 
-                        <BottomSection>
+                        <BottomSection
+                            variants= { TextChildrenVariants }
+                        >
                             <SectionContainer>
                                 <Title> Roofing Services </Title>
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import SidingBG from '../assets/siding.png'
+import { motion } from 'framer-motion'
 
 const Container = styled.div`
     min-height: 89.1vh;
@@ -28,7 +29,7 @@ const RightSection = styled.div`
 `
   
 
-const LeftWrapper = styled.div`
+const LeftWrapper = styled(motion.div)`
     flex: 6;
     display: flex;
     flex-direction: column;
@@ -37,7 +38,7 @@ const LeftWrapper = styled.div`
     height: 89vh;
 `
 
-const TopSection = styled.div`
+const TopSection = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,7 +61,7 @@ const Text = styled.p`
     color: #fff;
 `
 
-const BottomSection = styled.div`
+const BottomSection = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,12 +90,50 @@ const ServiceItems = styled.li`
 
 
 const SidingSection = () => {
+    // VARIANTS
+    const TextContainerVariants = {
+        hidden: {
+            opacity: 0,
+            x:-300,
+        },
+
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: { 
+                duration: 1,
+                staggerChildren: 0.4,
+            }
+        }
+    }
+
+    const TextChildrenVariants = {
+        hidden: {
+            opacity: 0,
+            x:-300,
+        },
+
+        show: {
+            x: 0,
+            opacity: 1,
+            transition: { 
+                duration: 1,
+            }
+        },
+    }
+    
     return (
+        
         <Container id='siding'>
             <Wrapper> 
                 <LeftSection> 
-                    <LeftWrapper>
-                        <TopSection>
+                    <LeftWrapper
+                        variants= { TextContainerVariants }
+                        initial= 'hidden'
+                        whileInView="show"
+                        viewport={{ once: false, amount: .5 }}
+                    >
+                        <TopSection variants= { TextChildrenVariants }>
                             <SectionContainer>
                                 <Title> Top Quality Siding </Title>
 
@@ -106,7 +145,7 @@ const SidingSection = () => {
                             </SectionContainer>
                         </TopSection>
 
-                        <BottomSection>
+                        <BottomSection variants= { TextChildrenVariants }>
                             <SectionContainer>
                                 <Title> Siding Services </Title>
 

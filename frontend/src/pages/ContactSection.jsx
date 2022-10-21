@@ -8,13 +8,13 @@ const Container = styled.div`
     width: 100%;
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
     min-height: 89vh;
     display: flex;
     position: relative;
 `
 
-const ContactContainer = styled.div`
+const ContactContainer = styled(motion.div)`
     flex: 3;
     display: flex;
     justify-content: flex-end;
@@ -47,15 +47,15 @@ const TextContainer = styled.div`
 
 const Title = styled.span`
     color: var(--red);
-    font-size: 2rem;
+    font-size: 2.3rem;
     font-weight: bold;
 `
 
 const Text = styled.span`
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 `
 
-const FormContainer = styled.div`
+const FormContainer = styled(motion.div)`
     flex: 9;
     width: 100%;
     display: flex;
@@ -248,38 +248,63 @@ const ContactSection = () => {
     }, [errorMsg, setIsSuccess, isSuccess, isSubmit])
 
     // VARIANTS
-    const NavVariant = {
+    const ContactVariants = {
         hidden: {
-            y: -100,
             opacity: 0,
+            x:200,
         },
 
         show: {
             opacity: 1,
-            y: 0,
+            x: 0,
             transition: { 
-                duration: 1,
+                duration: 0.8,
+                staggerChildren: 0.5,
             }
         }
     }
 
-    const LinkVariants = {
-        hover: {
-            scale: 1.1,
-            transition: {
+    const LeftVariants = {
+        hidden: {
+            opacity: 0,
+            x: -600,
+        },
+
+        show: {
+            x: 0,
+            opacity: 1,
+            transition: { 
                 duration: 0.8,
-                repeat: Infinity,
-                repeatType: 'mirror',
             }
-        }
+        },
+    }
+
+    const RightVariants = {
+        hidden: {
+            opacity: 0,
+            x:300,
+        },
+
+        show: {
+            x: 0,
+            opacity: 1,
+            transition: { 
+                duration: 1,
+            }
+        },
     }
 
     return (
         <Container id='contact'>
-            <Wrapper>
+            <Wrapper
+                variants= { ContactVariants }
+                initial= 'hidden'
+                whileInView="show"
+                viewport={{ once: false, amount: .5 }}
+            >
                 { showModal && <SuccessModal />}
 
-                <ContactContainer>
+                <ContactContainer variants= { LeftVariants }>
                     <Section>
                         <SectionItem>
                             <ContactTitle> Contact Info </ContactTitle>
@@ -316,7 +341,7 @@ const ContactSection = () => {
 
                 </ContactContainer>
 
-                <FormContainer>
+                <FormContainer variants= { RightVariants }>
                     <FormTitle> Contact Us For Free Estimate  </FormTitle>
 
                     <Form onSubmit={handleSubmit}>

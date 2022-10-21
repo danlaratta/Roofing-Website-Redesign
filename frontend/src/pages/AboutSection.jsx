@@ -72,7 +72,7 @@ const AboutSection = () => {
             x: 0,
             transition: { 
                 duration: 1,
-                staggerChildren: 0.4,
+                staggerChildren: 0.6,
             }
         }
     }
@@ -87,7 +87,7 @@ const AboutSection = () => {
             x: 0,
             opacity: 1,
             transition: { 
-                duration: 1,
+                duration: 1.4,
             }
         },
     }
