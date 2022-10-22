@@ -4,7 +4,7 @@ import SidingBG from '../assets/siding.png'
 import { motion } from 'framer-motion'
 
 const Container = styled.div`
-    min-height: 89.1vh;
+    min-height: 100vh;
     width: 100%;
     background-image: url(${SidingBG});
     background-position: center;
@@ -51,14 +51,14 @@ const SectionContainer = styled.div`
 
 const Title = styled.span`
     font-size: 3.5rem;
-    color: #fff;
+    color: #000;
     font-weight: bold;
 `
 
 const Text = styled.p`
     font-size: 1.8rem;
     line-height: 3.5rem;
-    color: #fff;
+    color: #000;
 `
 
 const BottomSection = styled(motion.div)`

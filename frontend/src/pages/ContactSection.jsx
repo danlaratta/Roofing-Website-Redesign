@@ -4,7 +4,7 @@ import SuccessModal from '../components/SuccessModal'
 import { motion } from 'framer-motion'
 
 const Container = styled.div`
-    min-height: 89vh;
+    min-height: 100vh;
     width: 100%;
 `
 

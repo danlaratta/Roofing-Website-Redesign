@@ -7,7 +7,7 @@ import Img3 from '../assets/img3.png'
 import { motion } from 'framer-motion'
 
 const Container = styled.div`
-    min-height: 89vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;

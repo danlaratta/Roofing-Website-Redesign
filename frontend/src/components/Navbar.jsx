@@ -7,7 +7,9 @@ import { motion } from 'framer-motion'
 
 const Container = styled.div`
     width: 100%;
-    background-color: ${props => props.color === 1 ? "#fff" : "rbga(0, 0, 0, 0)"};
+    height: 10vh;
+    /* background-color: ${props => props.color === 1 ? "#fff" : "rbga(0, 0, 0, 0)"}; */
+    background-color: ${props => props.color === 1 ? "rgba(255, 255, 255, 0.5)" : "rbga(0, 0, 0, 0)"};
     position: fixed;
     z-index: 10;
     box-shadow: ${props => props.color === 1 ? "0rem 0.2rem 0.8rem #565656" : "none"};
@@ -144,7 +146,7 @@ const Navbar = () => {
                     >
                         <NavItems variants= { LinkVariants }>
                             <LinkContainer variants= { HoverVariants } whileHover="hover">
-                                <NavLink activeClass='active' to="about" spy={true} smooth={true} offset={-110} duration={500} color={color}>
+                                <NavLink activeClass='active' to="about" spy={true} smooth={true} offset={0} duration={500} color={color}>
                                     About
                                 </NavLink>
                             </LinkContainer>
@@ -152,7 +154,7 @@ const Navbar = () => {
 
                         <NavItems variants= { LinkVariants }>
                             <LinkContainer variants= { HoverVariants } whileHover="hover">
-                                <NavLink activeClass="active" to="roofing" spy={true} smooth={true} offset={-110} duration={500} color={color}>
+                                <NavLink activeClass="active" to="roofing" spy={true} smooth={true} offset={0} duration={500} color={color}>
                                     Roofing
                                 </NavLink>
                             </LinkContainer>
@@ -160,7 +162,7 @@ const Navbar = () => {
 
                         <NavItems variants= { LinkVariants }>
                             <LinkContainer variants= { HoverVariants } whileHover="hover">
-                                <NavLink activeClass="active" to="siding" spy={true} smooth={true} offset={-109} duration={500} color={color}>
+                                <NavLink activeClass="active" to="siding" spy={true} smooth={true} offset={0} duration={500} color={color}>
                                     Siding
                                 </NavLink>
                             </LinkContainer>
@@ -168,7 +170,7 @@ const Navbar = () => {
 
                         <NavItems variants= { LinkVariants }>
                             <LinkContainer variants= { HoverVariants } whileHover="hover">
-                                <NavLink activeClass="active" to="contact" spy={true} smooth={true} offset={-109} duration={500} color={color}>
+                                <NavLink activeClass="active" to="contact" spy={true} smooth={true} offset={0} duration={500} color={color}>
                                     Contact
                                 </NavLink>
                             </LinkContainer>

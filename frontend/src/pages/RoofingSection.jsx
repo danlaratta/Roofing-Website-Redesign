@@ -1,41 +1,71 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import RoofingBG from '../assets/roofing.png'
+import RoofingBG from '../assets/roofing1.png'
 import { motion } from 'framer-motion'
 
 const Container = styled.div`
-    min-height: 89vh;
+    min-height: 100vh;
     width: 100%;
-    background-image: url(${RoofingBG});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
 `
 
 const Wrapper = styled.div`
     display: flex;
+    align-items: center;
+    position: relative;
 `
 
 
-const LeftSection = styled.div`
-    flex: 7;
+const BgImage = styled(motion.img)`
+    width: 54.5%;
+    height: 90%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+`
+
+const RedBg = styled(motion.div)`
+    height: 50vh;
+    width: 55%;
+    background-color: var(--red);
+    position: absolute;
+    right: 0;
+    z-index: -5;
+
+    &:after {
+        content: " ";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-color: var(--red);
+        transform-origin: bottom left;
+        -ms-transform: skew(15deg, 0deg);
+        -webkit-transform: skew(15deg, 0deg);
+        transform: skew(15deg, 0deg);
+    }
 `
 
 const RightSection = styled.div`
     flex: 6;
-    min-height: 89vh;
+    min-height: 100vh;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
 `
   
 
 const RightWrapper = styled(motion.div)`
-    flex: 6;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10%;
-    height: 86.5%;
+    gap: 4.6rem;
+    width: 45%;
+    padding-right: 2%;
+
 `
 
 const TopSection = styled(motion.div)`
@@ -92,6 +122,37 @@ const ServiceItems = styled.li`
 const RoofingSection = () => {
 
     // VARIANTS
+    const ImageVariants = {
+        hidden: {
+            opacity: 0,
+            x: -300,
+        },
+
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: { 
+                duration: 0.8,
+            }
+        }
+    }
+
+    const RedVariants = {
+        hidden: {
+            opacity: 0,
+            x:300,
+        },
+
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: { 
+                delay: 0.5,
+                duration: 0.8,
+            }
+        }
+    }
+
     const TextContainerVariants = {
         hidden: {
             opacity: 0,
@@ -103,6 +164,7 @@ const RoofingSection = () => {
             x: 0,
             transition: { 
                 duration: 1,
+                delayChildren: 1,
                 staggerChildren: 0.4,
             }
         }
@@ -126,7 +188,19 @@ const RoofingSection = () => {
     return (
         <Container id='roofing'>
             <Wrapper> 
-                <LeftSection> </LeftSection>
+                <BgImage src={RoofingBG}
+                    variants= { ImageVariants }
+                    initial= 'hidden'
+                    whileInView="show"
+                    viewport={{ once: false, amount: .5 }}
+                />
+
+                <RedBg 
+                    variants= { RedVariants }
+                    initial= 'hidden'
+                    whileInView="show"
+                    viewport={{ once: false, amount: .5 }}>
+                </RedBg>
 
                 <RightSection>
                     <RightWrapper
