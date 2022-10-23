@@ -8,8 +8,7 @@ import { motion } from 'framer-motion'
 const Container = styled.div`
     width: 100%;
     height: 10vh;
-    /* background-color: ${props => props.color === 1 ? "#fff" : "rbga(0, 0, 0, 0)"}; */
-    background-color: ${props => props.color === 1 ? "rgba(255, 255, 255, 0.5)" : "rbga(0, 0, 0, 0)"};
+    background-color: ${props => props.color === 1 ? "#fff" : "rbga(0, 0, 0, 0)"};
     position: fixed;
     z-index: 10;
     box-shadow: ${props => props.color === 1 ? "0rem 0.2rem 0.8rem #565656" : "none"};

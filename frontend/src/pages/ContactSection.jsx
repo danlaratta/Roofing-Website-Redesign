@@ -9,7 +9,7 @@ const Container = styled.div`
 `
 
 const Wrapper = styled(motion.div)`
-    min-height: 89vh;
+    min-height: 100vh;
     display: flex;
     position: relative;
 `
@@ -18,6 +18,7 @@ const ContactContainer = styled(motion.div)`
     flex: 3;
     display: flex;
     justify-content: flex-end;
+    margin-top: 5rem;
 `
 
 const Section = styled.div`
@@ -56,6 +57,7 @@ const Text = styled.span`
 `
 
 const FormContainer = styled(motion.div)`
+    margin-top: 5rem;
     flex: 9;
     width: 100%;
     display: flex;
@@ -274,7 +276,7 @@ const ContactSection = () => {
             x: 0,
             opacity: 1,
             transition: { 
-                duration: 0.8,
+                duration: 0.7,
             }
         },
     }
