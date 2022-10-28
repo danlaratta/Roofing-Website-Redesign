@@ -7,11 +7,15 @@ import { motion } from 'framer-motion'
 
 const Container = styled.div`
     width: 100%;
-    height: 10vh;
+    height: 12%;
     background-color: ${props => props.color === 1 ? "#fff" : "rbga(0, 0, 0, 0)"};
     position: fixed;
     z-index: 10;
     box-shadow: ${props => props.color === 1 ? "0rem 0.2rem 0.8rem #565656" : "none"};
+
+    @media only screen and (max-width: 1440px) {
+        height: 15%;
+    }
 `
 
 const Wrapper = styled(motion.div)`
@@ -29,6 +33,15 @@ const LogoLink = styled(Link)`
     cursor: pointer;
     color: #fff;
     padding-left: 2rem;
+`
+
+const Logo = styled.img`
+    width: 25%;
+
+    @media only screen and (max-width: 1440px) {
+        width: 32%;
+    }
+
 `
 
 const CenterNav = styled(motion.div)`
@@ -133,7 +146,7 @@ const Navbar = () => {
             >
                 <LeftNav variants= { NavVariant }>
                     <LogoLink to="hero" spy={true} smooth={true} offset={0} duration={500}>
-                        <img src={color ? LogoRed : LogoWhite} alt='logo' style={{width: '23%'}} />
+                        <Logo src={color ? LogoRed : LogoWhite} alt='logo' />
                     </LogoLink>
                 </LeftNav>
 

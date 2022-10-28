@@ -13,12 +13,17 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 6rem;
+
+    @media only screen and (max-width: 1440px) {
+        gap: 2rem;
+    }
 `
 
 const TextContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 7rem;
 
 `
 
@@ -28,16 +33,29 @@ const TitleContainer = styled(motion.div)`
 
 `
 
-const AboutTitle = styled.h1`
+const AboutTitle = styled.span`
     text-align: center;
     font-size: 4rem;
     color: var(--red);
+    font-weight: bold;
+    padding-bottom: 2rem;
+
+    @media only screen and (max-width: 1440px) {
+        font-size: 3.5rem;
+        padding-bottom: 0.5rem;
+    }
 `
 
 const AboutText = styled(motion.p)`
     font-size: 2.2rem;
     width: 50%;
     line-height: 3.5rem;
+
+    @media only screen and (max-width: 1440px) {
+        font-size: 2rem;
+        line-height: 3.5rem;
+        width: 60%;
+    }
 `
 
 const CardsContainer = styled(motion.div)`

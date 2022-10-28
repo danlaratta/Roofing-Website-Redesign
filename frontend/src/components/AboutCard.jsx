@@ -23,7 +23,6 @@ const CardImg = styled.img`
 
 const TextContainer = styled(motion.div)`
     width: 100%;
-    height: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,7 +46,7 @@ const AboutCard = ({image, text, path}) => {
         },
 
         hover: {
-            height: 450,
+            height: 417,
             transition: { 
                 duration: 0.5,
             }

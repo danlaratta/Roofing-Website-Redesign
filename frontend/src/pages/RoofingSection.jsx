@@ -31,6 +31,7 @@ const RedBg = styled(motion.div)`
     position: absolute;
     right: 0;
     z-index: -5;
+    margin-top: 5rem;
 
     &:after {
         content: " ";
@@ -55,6 +56,7 @@ const RightSection = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-top: 5rem;
 `
   
 

@@ -32,6 +32,7 @@ const RedBg = styled(motion.div)`
     position: absolute;
     left: 0;
     z-index: -5;
+    margin-top: 5rem;
 
     &:after {
         content: " ";
@@ -56,6 +57,7 @@ const LeftSection = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 5rem;
 `
   
 

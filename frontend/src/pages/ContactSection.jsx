@@ -18,7 +18,7 @@ const ContactContainer = styled(motion.div)`
     flex: 3;
     display: flex;
     justify-content: flex-end;
-    margin-top: 5rem;
+    margin-top: 10rem;
 `
 
 const Section = styled.div`
@@ -57,7 +57,7 @@ const Text = styled.span`
 `
 
 const FormContainer = styled(motion.div)`
-    margin-top: 5rem;
+    margin-top: 10rem;
     flex: 9;
     width: 100%;
     display: flex;

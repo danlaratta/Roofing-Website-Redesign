@@ -33,11 +33,19 @@ const HeroTitle = styled.span`
     font-weight: bold;
     color: #fff;
 
+    @media only screen and (max-width: 1440px) {
+        font-size: 4.5rem;
+    }
+
 `
 
 const HeroSubTitle = styled.span`
     font-size: 3rem;
     color: #fff;
+
+    @media only screen and (max-width: 1440px) {
+        font-size: 2.3rem;
+    }
 `
 
 const HeroBtn = styled(Link)`
@@ -50,6 +58,10 @@ const HeroBtn = styled(Link)`
     &:hover{
         cursor: pointer;
         background-color: var(--red);
+    }
+
+    @media only screen and (max-width: 1440px) {
+        font-size: 1.8rem;
     }
 `
 
