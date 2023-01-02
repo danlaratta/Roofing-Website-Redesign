@@ -19,13 +19,14 @@ const HeroContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 `
 
 const HeroItems = styled(motion.div)`
     width: 70%;
     display: flex;
     padding: 1.5rem 0rem;
+
 `
 
 const HeroTitle = styled.span`

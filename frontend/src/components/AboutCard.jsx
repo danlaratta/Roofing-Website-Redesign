@@ -46,7 +46,7 @@ const AboutCard = ({image, text, path}) => {
         },
 
         hover: {
-            height: 417,
+            height: 500,
             transition: { 
                 duration: 0.5,
             }
